@@ -11,4 +11,19 @@ $(function() {
       }
     });
   });
+
+ $(function() {
+    var images = $(".gallery img");
+    var currentIndex = images.length, temporaryValue, randomIndex;
+    
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = images[currentIndex];
+      images[currentIndex] = images[randomIndex];
+      images[randomIndex] = temporaryValue;
+    }
+    
+    $(".gallery").html(images);
+  });
   
